@@ -1,28 +1,26 @@
-# Stage 1 — Build the Next.js app
+# Stage 1 — build
 FROM node:18-alpine AS build
 WORKDIR /app
 
-# Copy package files and install dependencies
+ENV NODE_ENV=production
+# Install dependencies first (leverages caching)
 COPY package*.json ./
-RUN npm ci
+RUN npm ci --production=false
 
-# Copy the rest of the code
+# Copy source and build
 COPY . .
-
-# Build the Next.js app
 RUN npm run build
 
-# Stage 2 — Run the production server
+# Stage 2 — run
 FROM node:18-alpine AS runner
 WORKDIR /app
-
 ENV NODE_ENV=production
-# Copy only what’s needed for runtime
+# Copy only runtime artifacts
 COPY --from=build /app/package*.json ./
 COPY --from=build /app/.next ./.next
 COPY --from=build /app/public ./public
 COPY --from=build /app/node_modules ./node_modules
 
 EXPOSE 3000
-
+# Next.js production start
 CMD ["npm", "start"]
