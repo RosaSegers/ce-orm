@@ -1,0 +1,6 @@
+@AlumniSignup_HostAddress = http://localhost:5151
+
+GET {{AlumniSignup_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

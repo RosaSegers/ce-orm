@@ -1,0 +1,152 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Fontys\\Semester7\\AlumniWebsite\\Backend\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{22DC883C-F268-4168-B5BE-33A6037231BA}|AlumniSignup\\AlumniSignup.csproj|c:\\fontys\\semester7\\alumniwebsite\\backend\\alumnisignup\\services\\mailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22DC883C-F268-4168-B5BE-33A6037231BA}|AlumniSignup\\AlumniSignup.csproj|solutionrelative:alumnisignup\\services\\mailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22DC883C-F268-4168-B5BE-33A6037231BA}|AlumniSignup\\AlumniSignup.csproj|c:\\fontys\\semester7\\alumniwebsite\\backend\\alumnisignup\\controllers\\alumnicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22DC883C-F268-4168-B5BE-33A6037231BA}|AlumniSignup\\AlumniSignup.csproj|solutionrelative:alumnisignup\\controllers\\alumnicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22DC883C-F268-4168-B5BE-33A6037231BA}|AlumniSignup\\AlumniSignup.csproj|c:\\fontys\\semester7\\alumniwebsite\\backend\\alumnisignup\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22DC883C-F268-4168-B5BE-33A6037231BA}|AlumniSignup\\AlumniSignup.csproj|solutionrelative:alumnisignup\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22DC883C-F268-4168-B5BE-33A6037231BA}|AlumniSignup\\AlumniSignup.csproj|c:\\fontys\\semester7\\alumniwebsite\\backend\\alumnisignup\\model\\alumni.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22DC883C-F268-4168-B5BE-33A6037231BA}|AlumniSignup\\AlumniSignup.csproj|solutionrelative:alumnisignup\\model\\alumni.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22DC883C-F268-4168-B5BE-33A6037231BA}|AlumniSignup\\AlumniSignup.csproj|c:\\fontys\\semester7\\alumniwebsite\\backend\\alumnisignup\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{22DC883C-F268-4168-B5BE-33A6037231BA}|AlumniSignup\\AlumniSignup.csproj|solutionrelative:alumnisignup\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22DC883C-F268-4168-B5BE-33A6037231BA}|AlumniSignup\\AlumniSignup.csproj|c:\\fontys\\semester7\\alumniwebsite\\backend\\alumnisignup\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{22DC883C-F268-4168-B5BE-33A6037231BA}|AlumniSignup\\AlumniSignup.csproj|solutionrelative:alumnisignup\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22DC883C-F268-4168-B5BE-33A6037231BA}|AlumniSignup\\AlumniSignup.csproj|c:\\fontys\\semester7\\alumniwebsite\\backend\\alumnisignup\\data\\databasecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22DC883C-F268-4168-B5BE-33A6037231BA}|AlumniSignup\\AlumniSignup.csproj|solutionrelative:alumnisignup\\data\\databasecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22DC883C-F268-4168-B5BE-33A6037231BA}|AlumniSignup\\AlumniSignup.csproj|c:\\fontys\\semester7\\alumniwebsite\\backend\\alumnisignup\\migrations\\20251020073545_initialdatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22DC883C-F268-4168-B5BE-33A6037231BA}|AlumniSignup\\AlumniSignup.csproj|solutionrelative:alumnisignup\\migrations\\20251020073545_initialdatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MailService.cs",
+              "DocumentMoniker": "C:\\Fontys\\Semester7\\AlumniWebsite\\Backend\\AlumniSignup\\Services\\MailService.cs",
+              "RelativeDocumentMoniker": "AlumniSignup\\Services\\MailService.cs",
+              "ToolTip": "C:\\Fontys\\Semester7\\AlumniWebsite\\Backend\\AlumniSignup\\Services\\MailService.cs",
+              "RelativeToolTip": "AlumniSignup\\Services\\MailService.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAQwCIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-26T07:51:42.017Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "20251020073545_InitialDatabase.cs",
+              "DocumentMoniker": "C:\\Fontys\\Semester7\\AlumniWebsite\\Backend\\AlumniSignup\\Migrations\\20251020073545_InitialDatabase.cs",
+              "RelativeDocumentMoniker": "AlumniSignup\\Migrations\\20251020073545_InitialDatabase.cs",
+              "ToolTip": "C:\\Fontys\\Semester7\\AlumniWebsite\\Backend\\AlumniSignup\\Migrations\\20251020073545_InitialDatabase.cs",
+              "RelativeToolTip": "AlumniSignup\\Migrations\\20251020073545_InitialDatabase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-20T07:35:46.097Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Fontys\\Semester7\\AlumniWebsite\\Backend\\AlumniSignup\\appsettings.json",
+              "RelativeDocumentMoniker": "AlumniSignup\\appsettings.json",
+              "ToolTip": "C:\\Fontys\\Semester7\\AlumniWebsite\\Backend\\AlumniSignup\\appsettings.json",
+              "RelativeToolTip": "AlumniSignup\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-10-20T07:33:16.102Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Fontys\\Semester7\\AlumniWebsite\\Backend\\AlumniSignup\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "AlumniSignup\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Fontys\\Semester7\\AlumniWebsite\\Backend\\AlumniSignup\\Properties\\launchSettings.json",
+              "RelativeToolTip": "AlumniSignup\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-10-20T07:33:11.201Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Fontys\\Semester7\\AlumniWebsite\\Backend\\AlumniSignup\\Program.cs",
+              "RelativeDocumentMoniker": "AlumniSignup\\Program.cs",
+              "ToolTip": "C:\\Fontys\\Semester7\\AlumniWebsite\\Backend\\AlumniSignup\\Program.cs",
+              "RelativeToolTip": "AlumniSignup\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-03T06:45:55.168Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "DatabaseContext.cs",
+              "DocumentMoniker": "C:\\Fontys\\Semester7\\AlumniWebsite\\Backend\\AlumniSignup\\Data\\DatabaseContext.cs",
+              "RelativeDocumentMoniker": "AlumniSignup\\Data\\DatabaseContext.cs",
+              "ToolTip": "C:\\Fontys\\Semester7\\AlumniWebsite\\Backend\\AlumniSignup\\Data\\DatabaseContext.cs",
+              "RelativeToolTip": "AlumniSignup\\Data\\DatabaseContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-03T06:45:59.181Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AlumniController.cs",
+              "DocumentMoniker": "C:\\Fontys\\Semester7\\AlumniWebsite\\Backend\\AlumniSignup\\Controllers\\AlumniController.cs",
+              "RelativeDocumentMoniker": "AlumniSignup\\Controllers\\AlumniController.cs",
+              "ToolTip": "C:\\Fontys\\Semester7\\AlumniWebsite\\Backend\\AlumniSignup\\Controllers\\AlumniController.cs",
+              "RelativeToolTip": "AlumniSignup\\Controllers\\AlumniController.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAUwCYAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-03T06:45:02.132Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Alumni.cs",
+              "DocumentMoniker": "C:\\Fontys\\Semester7\\AlumniWebsite\\Backend\\AlumniSignup\\Model\\Alumni.cs",
+              "RelativeDocumentMoniker": "AlumniSignup\\Model\\Alumni.cs",
+              "ToolTip": "C:\\Fontys\\Semester7\\AlumniWebsite\\Backend\\AlumniSignup\\Model\\Alumni.cs",
+              "RelativeToolTip": "AlumniSignup\\Model\\Alumni.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-03T06:42:03.725Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
