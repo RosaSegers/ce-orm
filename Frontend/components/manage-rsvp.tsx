@@ -32,7 +32,7 @@ export function ManageRsvp({ rsvpId }: { rsvpId: string }) {
 
   const fetchAlumni = async () => {
     try {
-      const response = await fetch(`http://localhost:8080/api/rsvp/${rsvpId}`)
+      const response = await fetch(`https://api.ce-ormreunie.nl/api/rsvp/${rsvpId}`)
       if (response.ok) {
         const data = await response.json()
         setAlumni(data)
@@ -52,7 +52,7 @@ export function ManageRsvp({ rsvpId }: { rsvpId: string }) {
 
     setIsDeleting(true)
     try {
-      const response = await fetch(`http://localhost:8080/api/rsvp/${rsvpId}`, {
+      const response = await fetch(`https://api.ce-ormreunie.nl/api/rsvp/${rsvpId}`, {
         method: "DELETE",
       })
       if (response.ok) {
