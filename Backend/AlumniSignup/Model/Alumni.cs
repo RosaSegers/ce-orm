@@ -3,31 +3,24 @@
     public class Alumni
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Email { get; set; }
-        public string GraduationYear { get; set; }
-        public string Degree { get; set; }
-        public string Major { get; set; }
-        public string CurrentPosition { get; set; }
-        public string Company { get; set; }
-        public string Location { get; set; }
-        public string LinkedInProfile { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public string GraduationYear { get; set; } = string.Empty;
+        public string Degree { get; set; } = string.Empty;
+        public string Major { get; set; } = string.Empty;
+        public string CurrentPosition { get; set; } = string.Empty;
+        public string Company { get; set; } = string.Empty;
+        public string OudLidGlow { get; set; } = string.Empty;  // new field
+        public string LinkedInProfile { get; set; } = string.Empty;
         public DateTime SignupDate { get; set; } = DateTime.Now;
 
         public Alumni()
         {
-            Name = string.Empty;
-            Email = string.Empty;
-            GraduationYear = string.Empty;
-            Degree = string.Empty;
-            Major = string.Empty;
-            CurrentPosition = string.Empty;
-            Company = string.Empty;
-            Location = string.Empty;
-            LinkedInProfile = string.Empty;
+            // all properties already initialized inline
         }
 
-        public Alumni(string name, string email, string graduationYear, string degree, string major, string currentPosition, string company, string location, string linkedInProfile)
+        public Alumni(string name, string email, string graduationYear, string degree, string major,
+                      string currentPosition, string company, string oudLidGlow, string linkedInProfile)
         {
             Name = name;
             Email = email;
@@ -36,7 +29,7 @@
             Major = major;
             CurrentPosition = currentPosition;
             Company = company;
-            Location = location;
+            OudLidGlow = oudLidGlow;
             LinkedInProfile = linkedInProfile;
         }
     }

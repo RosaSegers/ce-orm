@@ -18,7 +18,7 @@ export function RsvpForm() {
     major: "",
     currentPosition: "",
     company: "",
-    studyassociation: "",
+    oudLidGlow: "",
     linkedInProfile: "",
   })
 
@@ -136,22 +136,10 @@ export function RsvpForm() {
                 placeholder="2020"
               />
             </div>
-            <div className="space-y-2">
-              <Label htmlFor="degree">Graad</Label>
-              <Input
-                id="degree"
-                name="degree"
-                value={formData.degree}
-                onChange={handleChange}
-                required
-                className="bg-background border-2 focus:border-accent h-11"
-                placeholder="Bachelor of ..."
-              />
-            </div>
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="major">Hoofdrichting / Major</Label>
+            <Label htmlFor="major">Gevolgde opleiding</Label>
             <Input
               id="major"
               name="major"
@@ -191,17 +179,32 @@ export function RsvpForm() {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="studievereniging">Onderdeel van studie vereniging</Label>
-            <Input
-              id="studievereniging"
-              name="studievereniging"
-              value={formData.studyassociation}
-              onChange={handleChange}
-              className="bg-background border-2 focus:border-accent h-11"
-              placeholder="Glow, Fame..."
-            />
+            <Label>Ben je oud lid van GLOW</Label>
+            <div className="flex space-x-4">
+              <label className="inline-flex items-center">
+                <input
+                  type="radio"
+                  name="oudLidGlow"
+                  value="Ja"
+                  checked={formData.oudLidGlow === "Ja"}
+                  onChange={handleChange}
+                  className="form-radio"
+                />
+                <span className="ml-2">Ja</span>
+              </label>
+              <label className="inline-flex items-center">
+                <input
+                  type="radio"
+                  name="oudLidGlow"
+                  value="Nee"
+                  checked={formData.oudLidGlow === "Nee"}
+                  onChange={handleChange}
+                  className="form-radio"
+                />
+                <span className="ml-2">Nee</span>
+              </label>
+            </div>
           </div>
-
           <div className="space-y-2">
             <Label htmlFor="linkedInProfile">
               LinkedIn-profiel <span className="text-muted-foreground font-normal">(optioneel)</span>
