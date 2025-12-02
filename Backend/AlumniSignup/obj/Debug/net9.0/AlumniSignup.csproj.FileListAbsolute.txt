@@ -479,8 +479,6 @@ C:\Fontys\Semester7\AlumniWebsite\Backend\AlumniSignup\obj\Debug\net9.0\AlumniSi
 C:\Fontys\Semester7\AlumniWebsite\Backend\AlumniSignup\obj\Debug\net9.0\AlumniSignup.AssemblyInfo.cs
 C:\Fontys\Semester7\AlumniWebsite\Backend\AlumniSignup\obj\Debug\net9.0\AlumniSignup.csproj.CoreCompileInputs.cache
 C:\Fontys\Semester7\AlumniWebsite\Backend\AlumniSignup\obj\Debug\net9.0\AlumniSignup.MvcApplicationPartsAssemblyInfo.cache
-C:\Fontys\Semester7\AlumniWebsite\Backend\AlumniSignup\obj\Debug\net9.0\AlumniSignup.RazorAssemblyInfo.cache
-C:\Fontys\Semester7\AlumniWebsite\Backend\AlumniSignup\obj\Debug\net9.0\AlumniSignup.RazorAssemblyInfo.cs
 C:\Fontys\Semester7\AlumniWebsite\Backend\AlumniSignup\obj\Debug\net9.0\scopedcss\bundle\AlumniSignup.styles.css
 C:\Fontys\Semester7\AlumniWebsite\Backend\AlumniSignup\obj\Debug\net9.0\staticwebassets.build.json
 C:\Fontys\Semester7\AlumniWebsite\Backend\AlumniSignup\obj\Debug\net9.0\staticwebassets.development.json

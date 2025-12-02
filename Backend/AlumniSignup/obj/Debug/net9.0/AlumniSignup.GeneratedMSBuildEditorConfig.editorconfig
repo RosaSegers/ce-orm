@@ -27,27 +27,3 @@ build_property.MSBuildProjectDirectory = C:\Fontys\Semester7\AlumniWebsite\Backe
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
-
-[C:/Fontys/Semester7/AlumniWebsite/Backend/AlumniSignup/Views/Alumni/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWx1bW5pXENyZWF0ZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Fontys/Semester7/AlumniWebsite/Backend/AlumniSignup/Views/Alumni/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWx1bW5pXERlbGV0ZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Fontys/Semester7/AlumniWebsite/Backend/AlumniSignup/Views/Alumni/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWx1bW5pXERldGFpbHMuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Fontys/Semester7/AlumniWebsite/Backend/AlumniSignup/Views/Alumni/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWx1bW5pXEVkaXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Fontys/Semester7/AlumniWebsite/Backend/AlumniSignup/Views/Alumni/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWx1bW5pXEluZGV4LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Fontys/Semester7/AlumniWebsite/Backend/AlumniSignup/Views/Shared/_ValidationScriptsPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
