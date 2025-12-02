@@ -86,7 +86,7 @@ services:
       - ASPNETCORE_ENVIRONMENT=Production
       - VIRTUAL_HOST=api.ce-ormreunie.nl
       - LETSENCRYPT_HOST=api.ce-ormreunie.nl
-      - LETSENCRYPT_EMAIL=you@example.com
+      - LETSENCRYPT_EMAIL=rosa.segers.2001@gmail.com
     expose:
       - "8080"
     networks:
@@ -105,7 +105,7 @@ services:
     environment:
       - VIRTUAL_HOST=ce-ormreunie.nl,www.ce-ormreunie.nl
       - LETSENCRYPT_HOST=ce-ormreunie.nl,www.ce-ormreunie.nl
-      - LETSENCRYPT_EMAIL=you@example.com
+      - LETSENCRYPT_EMAIL=rosa.segers.2001@gmail.com
     expose:
       - "3000"
     networks:
