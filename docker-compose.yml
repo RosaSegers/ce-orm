@@ -75,7 +75,7 @@ services:
   # -----------------------------------------
   api_backend:
     build:
-      context: ./backend
+      context: ./Backend
       dockerfile: Dockerfile
     container_name: ce_api
     depends_on:
@@ -97,7 +97,7 @@ services:
   # Frontend
   react_frontend:
     build:
-      context: ./frontend
+      context: ./Frontend
       dockerfile: Dockerfile
     container_name: ce_frontend
     depends_on:
