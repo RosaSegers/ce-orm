@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AlumniSignup")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+747050d9e3c623c5d48fc19ce5bc709372e0d92f")]
 [assembly: System.Reflection.AssemblyProductAttribute("AlumniSignup")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AlumniSignup")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

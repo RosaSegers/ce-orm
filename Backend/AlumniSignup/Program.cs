@@ -9,9 +9,13 @@ internal class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
+        // Use PostgreSQL instead of SQL Server
         builder.Services.AddDbContext<DatabaseContext>(options =>
-            options.UseSqlServer(builder.Configuration.GetConnectionString("DatabaseContext")
-                ?? throw new InvalidOperationException("Connection string 'DatabaseContext' not found.")));
+            options.UseNpgsql(
+                builder.Configuration.GetConnectionString("DatabaseContext")
+                ?? throw new InvalidOperationException("Connection string 'DatabaseContext' not found.")
+            )
+        );
 
         builder.Services.AddScoped<MailService>();
 
@@ -23,13 +27,12 @@ internal class Program
 
         builder.Services.AddCors(options =>
         {
-            options.AddPolicy(name: "AlumniFrontend",
-                              policy =>
-                              {
-                                  policy.AllowAnyHeader();
-                                  policy.AllowAnyOrigin();
-                                  policy.AllowAnyMethod();
-                              });
+            options.AddPolicy("AlumniFrontend", policy =>
+            {
+                policy.AllowAnyHeader();
+                policy.AllowAnyOrigin();
+                policy.AllowAnyMethod();
+            });
         });
 
         builder.Services.AddControllers();

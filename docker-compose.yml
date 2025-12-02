@@ -7,13 +7,13 @@ networks:
     driver: bridge
 
 volumes:
-  sql_data:
+  postgres_data:
   nginx_certs:
   nginx_vhost:
   nginx_html:
 
 services:
-  # Reverse proxy (routes HTTP/HTTPS to containers by VIRTUAL_HOST)
+  # Reverse proxy
   nginx-proxy:
     image: jwilder/nginx-proxy:latest
     container_name: nginx-proxy
@@ -29,7 +29,7 @@ services:
     networks:
       - proxy-tier
 
-  # Let's Encrypt companion (automates certificate issuance/renewal)
+  # Let's Encrypt companion
   acme-companion:
     image: nginxproxy/acme-companion:latest
     container_name: acme-companion
@@ -37,7 +37,7 @@ services:
     depends_on:
       - nginx-proxy
     environment:
-      - DEFAULT_EMAIL=rosa.segers.2001@gmail.com      # <-- CHANGE this
+      - DEFAULT_EMAIL=rosa.segers.2001@gmail.com
       - NGINX_PROXY_CONTAINER=nginx-proxy
     volumes:
       - nginx_certs:/etc/nginx/certs
@@ -47,47 +47,54 @@ services:
     networks:
       - proxy-tier
 
-  sqlserver:
-    image: mcr.microsoft.com/mssql/server:2022-latest
-    container_name: sqlserver
+  # -----------------------------------------
+  # PostgreSQL (replaces SQL Server)
+  # -----------------------------------------
+  postgres:
+    image: postgres:15
+    container_name: postgres
+    restart: always
     environment:
-      - ACCEPT_EULA=Y
-      - SA_PASSWORD=YourStrong!Passw0rd  # change to a secure secret (do not commit)
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=YourStrongPostgresPassword
+      - POSTGRES_DB=AlumniDB
     volumes:
-      - sql_data:/var/opt/mssql
+      - postgres_data:/var/lib/postgresql/data
     networks:
       - app-network
     healthcheck:
-      test: /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P YourStrong!Passw0rd -Q "SELECT 1" || exit 1
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 10s
       retries: 10
       start_period: 20s
-    # optional: only map 1433 if you need host access
     ports:
-      - "1433:1433"
+      - "5432:5432"
 
+  # -----------------------------------------
+  # API backend (now using PostgreSQL)
+  # -----------------------------------------
   api_backend:
     build:
       context: ./backend
       dockerfile: Dockerfile
     container_name: ce_api
     depends_on:
-      sqlserver:
+      postgres:
         condition: service_healthy
     environment:
-      - ConnectionStrings__DatabaseContext=Server=sqlserver,1433;Database=AlumniDB;User Id=sa;Password=YourStrong!Passw0rd;TrustServerCertificate=True;
+      - ConnectionStrings__DatabaseContext=Host=postgres;Port=5432;Database=AlumniDB;Username=postgres;Password=YourStrongPostgresPassword;
       - ASPNETCORE_ENVIRONMENT=Production
       - VIRTUAL_HOST=api.ce-ormreunie.nl
       - LETSENCRYPT_HOST=api.ce-ormreunie.nl
       - LETSENCRYPT_EMAIL=you@example.com
-      # put additional env/secrets (Google credentials) via env_file or docker secrets
     expose:
-      - "8080"   # internal port the container listens on
+      - "8080"
     networks:
       - app-network
       - proxy-tier
     restart: on-failure
 
+  # Frontend
   react_frontend:
     build:
       context: ./frontend
@@ -100,7 +107,7 @@ services:
       - LETSENCRYPT_HOST=ce-ormreunie.nl,www.ce-ormreunie.nl
       - LETSENCRYPT_EMAIL=you@example.com
     expose:
-      - "3000"   # container runs Next.js on 3000 (next start)
+      - "3000"
     networks:
       - app-network
       - proxy-tier
