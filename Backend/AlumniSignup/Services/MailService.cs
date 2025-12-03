@@ -26,7 +26,7 @@ namespace AlumniSignup.Services
                         </p>
 
                         <p>
-                            <a href='http://localhost:3000/manage/" + id + @"' 
+                            <a href='https://ce-ormreunie.nl/manage/" + id + @"' 
                                style='background:#d9534f; color:white; padding:10px 16px; 
                                       text-decoration:none; border-radius:4px;'>
                                 Afmelden

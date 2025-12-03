@@ -1,6 +1,8 @@
 version: "3.9"
 
 networks:
+  proxy-tier:
+    driver: bridge
   app-network:
     driver: bridge
 
@@ -8,6 +10,21 @@ volumes:
   postgres_data:
 
 services:
+
+  # -----------------------------------------
+  # Reverse proxy (HTTP only)
+  # -----------------------------------------
+  nginx-proxy:
+    image: jwilder/nginx-proxy:latest
+    container_name: nginx-proxy
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+    networks:
+      - proxy-tier
+
   # -----------------------------------------
   # PostgreSQL
   # -----------------------------------------
@@ -16,53 +33,50 @@ services:
     container_name: postgres
     restart: always
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=YourStrongPostgresPassword
-      - POSTGRES_DB=AlumniDB
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: YourStrongPostgresPassword
+      POSTGRES_DB: AlumniDB
     volumes:
       - postgres_data:/var/lib/postgresql/data
     networks:
       - app-network
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres"]
-      interval: 10s
-      retries: 10
-      start_period: 20s
     ports:
       - "5432:5432"
 
   # -----------------------------------------
-  # API backend (HTTP only — Cloudflare handles SSL)
+  # API backend
   # -----------------------------------------
   api_backend:
     build:
       context: ./Backend
       dockerfile: Dockerfile
     container_name: ce_api
+    restart: always
     depends_on:
-      postgres:
-        condition: service_healthy
+      - postgres
     environment:
-      - ConnectionStrings__DatabaseContext=Host=postgres;Port=5432;Database=AlumniDB;Username=postgres;Password=YourStrongPostgresPassword;
+      - ConnectionStrings__DatabaseContext=Host=postgres;Port=5432;Database=AlumniDB;Username=postgres;Password=YourStrongPostgresPassword
       - ASPNETCORE_ENVIRONMENT=Production
+      - VIRTUAL_HOST=api.ce-ormreunie.nl
     expose:
       - "8080"
     networks:
       - app-network
-    restart: always
+      - proxy-tier
 
   # -----------------------------------------
-  # Frontend (HTTP only — Cloudflare handles SSL)
+  # Frontend
   # -----------------------------------------
   react_frontend:
     build:
       context: ./Frontend
       dockerfile: Dockerfile
     container_name: ce_frontend
-    depends_on:
-      - api_backend
+    restart: always
+    environment:
+      - VIRTUAL_HOST=ce-ormreunie.nl,www.ce-ormreunie.nl
     expose:
       - "3000"
     networks:
       - app-network
-    restart: always
+      - proxy-tier
