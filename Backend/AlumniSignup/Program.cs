@@ -25,13 +25,14 @@ internal class Program
             dataContext.Database.Migrate();
         }
 
+        // Configure CORS with specific allowed origins
         builder.Services.AddCors(options =>
         {
             options.AddPolicy("AlumniFrontend", policy =>
             {
-                policy.AllowAnyHeader();
-                policy.AllowAnyOrigin();
-                policy.AllowAnyMethod();
+                policy.WithOrigins("https://ce-ormreunie.nl", "https://www.ce-ormreunie.nl")
+                      .AllowAnyHeader()
+                      .AllowAnyMethod();
             });
         });
 
@@ -39,7 +40,9 @@ internal class Program
 
         var app = builder.Build();
 
+        // Use the configured CORS policy
         app.UseCors("AlumniFrontend");
+
         app.UseAuthorization();
 
         app.MapControllerRoute(
