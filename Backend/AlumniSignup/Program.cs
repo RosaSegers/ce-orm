@@ -39,7 +39,6 @@ internal class Program
 
         var app = builder.Build();
 
-        app.UseHttpsRedirection();
         app.UseCors("AlumniFrontend");
         app.UseAuthorization();
 
