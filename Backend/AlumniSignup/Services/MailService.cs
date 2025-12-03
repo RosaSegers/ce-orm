@@ -10,7 +10,7 @@ namespace AlumniSignup.Services
         {
             var fromAddress = new MailAddress("ceorm.alumnibijeenkomst@gmail.com", "From Name");
             var toAddress = new MailAddress(to, "To Name");
-            const string fromPassword = "6kpWHK265rd0$Kbx4xV^*gdFl";
+            const string fromPassword = "emyd zvtw uyho sbou"; // Your app password here
             const string subject = "Bedankt voor uw aanmelding.";
             string body = @"
                 <html>
@@ -47,10 +47,12 @@ namespace AlumniSignup.Services
                 UseDefaultCredentials = false,
                 Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
             };
+
             using (var message = new MailMessage(fromAddress, toAddress)
             {
                 Subject = subject,
-                Body = body
+                Body = body,
+                IsBodyHtml = true  // This enables HTML formatting
             })
             {
                 smtp.Send(message);
