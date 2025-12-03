@@ -40,14 +40,16 @@ internal class Program
 
         var app = builder.Build();
 
+        // IMPORTANT: UseRouting before UseCors and UseAuthorization
+        app.UseRouting();
+
         // Use the configured CORS policy
         app.UseCors("AlumniFrontend");
 
         app.UseAuthorization();
 
-        app.MapControllerRoute(
-            name: "default",
-            pattern: "{controller=Home}/{action=Index}/{id?}");
+        // Map API controllers
+        app.MapControllers();
 
         app.Run();
     }
