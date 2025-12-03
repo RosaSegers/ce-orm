@@ -1,54 +1,15 @@
 version: "3.9"
 
 networks:
-  proxy-tier:
-    driver: bridge
   app-network:
     driver: bridge
 
 volumes:
   postgres_data:
-  nginx_certs:
-  nginx_vhost:
-  nginx_html:
 
 services:
-  # Reverse proxy
-  nginx-proxy:
-    image: jwilder/nginx-proxy:latest
-    container_name: nginx-proxy
-    restart: always
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - nginx_certs:/etc/nginx/certs
-      - nginx_vhost:/etc/nginx/vhost.d
-      - nginx_html:/usr/share/nginx/html
-      - /var/run/docker.sock:/tmp/docker.sock:ro
-    networks:
-      - proxy-tier
-
-  # Let's Encrypt companion
-  acme-companion:
-    image: nginxproxy/acme-companion:latest
-    container_name: acme-companion
-    restart: always
-    depends_on:
-      - nginx-proxy
-    environment:
-      - DEFAULT_EMAIL=rosa.segers.2001@gmail.com
-      - NGINX_PROXY_CONTAINER=nginx-proxy
-    volumes:
-      - nginx_certs:/etc/nginx/certs
-      - nginx_vhost:/etc/nginx/vhost.d
-      - nginx_html:/usr/share/nginx/html
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-    networks:
-      - proxy-tier
-
   # -----------------------------------------
-  # PostgreSQL (replaces SQL Server)
+  # PostgreSQL
   # -----------------------------------------
   postgres:
     image: postgres:15
@@ -71,7 +32,7 @@ services:
       - "5432:5432"
 
   # -----------------------------------------
-  # API backend (now using PostgreSQL)
+  # API backend (HTTP only — Cloudflare handles SSL)
   # -----------------------------------------
   api_backend:
     build:
@@ -84,17 +45,15 @@ services:
     environment:
       - ConnectionStrings__DatabaseContext=Host=postgres;Port=5432;Database=AlumniDB;Username=postgres;Password=YourStrongPostgresPassword;
       - ASPNETCORE_ENVIRONMENT=Production
-      - VIRTUAL_HOST=api.ce-ormreunie.nl
-      - LETSENCRYPT_HOST=api.ce-ormreunie.nl
-      - LETSENCRYPT_EMAIL=rosa.segers.2001@gmail.com
     expose:
       - "8080"
     networks:
       - app-network
-      - proxy-tier
-    restart: on-failure
+    restart: always
 
-  # Frontend
+  # -----------------------------------------
+  # Frontend (HTTP only — Cloudflare handles SSL)
+  # -----------------------------------------
   react_frontend:
     build:
       context: ./Frontend
@@ -102,13 +61,8 @@ services:
     container_name: ce_frontend
     depends_on:
       - api_backend
-    environment:
-      - VIRTUAL_HOST=ce-ormreunie.nl,www.ce-ormreunie.nl
-      - LETSENCRYPT_HOST=ce-ormreunie.nl,www.ce-ormreunie.nl
-      - LETSENCRYPT_EMAIL=rosa.segers.2001@gmail.com
     expose:
       - "3000"
     networks:
       - app-network
-      - proxy-tier
-    restart: on-failure
+    restart: always
