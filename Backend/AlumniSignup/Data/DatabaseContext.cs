@@ -15,5 +15,16 @@ namespace AlumniSignup.Data
         }
 
         public DbSet<AlumniSignup.Model.Alumni> Alumni { get; set; } = default!;
+
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Alumni>()
+                .HasKey(a => a.Id);
+
+            modelBuilder.Entity<Alumni>()
+                .Property(a => a.Id)
+                .ValueGeneratedOnAdd();
+        }
     }
 }
