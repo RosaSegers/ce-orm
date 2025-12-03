@@ -12,7 +12,9 @@
         public string Company { get; set; } = string.Empty;
         public string OudLidGlow { get; set; } = string.Empty;  // new field
         public string LinkedInProfile { get; set; } = string.Empty;
-        public DateTime SignupDate { get; set; } = DateTime.Now;
+
+        // Change this line: use UtcNow instead of Now
+        public DateTime SignupDate { get; set; } = DateTime.UtcNow;
 
         public Alumni()
         {

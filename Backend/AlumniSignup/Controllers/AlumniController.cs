@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AlumniSignup.Data;
 using AlumniSignup.Model;
@@ -40,16 +38,18 @@ namespace AlumniSignup.Controllers
         {
             if (ModelState.IsValid)
             {
+                NormalizeDateTimesToUtc(alumni);
+
                 _context.Add(alumni);
+                await _context.SaveChangesAsync();
 
                 _mailService.SendEmail(alumni.Email, alumni.Name, alumni.Id);
 
-                await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return Ok(alumni);
+            return BadRequest(ModelState);
         }
-        
+
         [HttpPut("")]
         public async Task<IActionResult> Edit(int id, [FromBody] Alumni alumni)
         {
@@ -62,6 +62,8 @@ namespace AlumniSignup.Controllers
             {
                 try
                 {
+                    NormalizeDateTimesToUtc(alumni);
+
                     _context.Update(alumni);
                     await _context.SaveChangesAsync();
                 }
@@ -78,7 +80,7 @@ namespace AlumniSignup.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return Ok(alumni);
+            return BadRequest(ModelState);
         }
 
         [HttpDelete("{id}")]
@@ -88,15 +90,22 @@ namespace AlumniSignup.Controllers
             if (alumni != null)
             {
                 _context.Alumni.Remove(alumni);
+                await _context.SaveChangesAsync();
             }
-
-            await _context.SaveChangesAsync();
             return Ok();
         }
 
         private bool AlumniExists(int id)
         {
             return _context.Alumni.Any(e => e.Id == id);
+        }
+
+        private void NormalizeDateTimesToUtc(Alumni alumni)
+        {
+            if (alumni.SignupDate.Kind != DateTimeKind.Utc)
+            {
+                alumni.SignupDate = alumni.SignupDate.ToUniversalTime();
+            }
         }
     }
 }
