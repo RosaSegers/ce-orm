@@ -8,8 +8,8 @@ namespace AlumniSignup.Services
     {
         public void SendEmail(string to, string name, int id)
         {
-            var fromAddress = new MailAddress("ceorm.alumnibijeenkomst@gmail.com", "From Name");
-            var toAddress = new MailAddress(to, "To Name");
+            var fromAddress = new MailAddress("ceorm.alumnibijeenkomst@gmail.com", "Reunie Team");
+            var toAddress = new MailAddress(to, name);
             const string fromPassword = "emyd zvtw uyho sbou"; // Your app password here
             const string subject = "Bedankt voor uw aanmelding.";
             string body = @"
